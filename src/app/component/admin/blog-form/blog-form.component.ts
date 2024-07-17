@@ -27,7 +27,7 @@ blogForm = this.formbuilder.group(
     description: ['',],
     content: ['',],
     image: ['',],
-    isfeatured:[false],
+    isFeatured:[false],
   }
 )
 selected = new FormControl('valid', [Validators.required, Validators.pattern('valid')]);
