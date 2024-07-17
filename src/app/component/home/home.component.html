@@ -1,0 +1,26 @@
+<div class="flex flex-col justify-center text-center item-center px-20 h-80">
+  <h1 class="text-2xl font-bold">Welcome To Code with Shubhangi</h1>
+  <p>
+    This is a blog site application where you can create, read, update and
+    delete blogs. You can also view the details of the blog and the author of
+    the blog. You can also view the list of all the blogs and the authors of the
+    blogs. You can also view the details of the author and the list of all the
+    authors. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam,
+    optio quaerat. Iusto ea ratione, mollitia facere itaque quisquam blanditiis
+    nobis animi reiciendis, ipsum eum. Necessitatibus perspiciatis aspernatur
+    nulla unde est. Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    Ullam adipisci nam, reiciendis cupiditate maiores voluptatum, quae, cumque
+    obcaecati ipsam at eveniet sapiente necessitatibus nesciunt quos dolores
+    illum eum molestiae similique.
+  </p>
+</div>
+<div class="flex flex-col items-center px-20 mb-10">
+  <h2 class="text-xl font-bold text-center">Featured Class</h2>
+  <div class="flex flex-wrap gap-4">
+    @for (item of featuredblogs; track $index) {
+    <div class="w-3/12">
+      <app-blogcards [item]="item"></app-blogcards>
+    </div>
+  }
+  </div>
+</div>

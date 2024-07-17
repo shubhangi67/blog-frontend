@@ -1,0 +1,57 @@
+<div class="flex flex-col items-center w-full">
+  @if(isEdit)
+  {
+    <h1 class ="justify-center items-center font-bold">Update Blog</h1>
+  }@else {
+    <h1 class ="justify-center items-center font-bold">Create Blog</h1>
+  }
+  <form [formGroup]="blogForm" class="w-full max-w-lg">
+    <div class="flex flex-col items-center w-full">
+      <div class="w-full">
+        <mat-form-field class="w-full">
+          <mat-label>Category</mat-label>
+          <mat-select formControlName="categoryId">
+            @for (item of categoryList; track $index) {
+              <mat-option [value]="item.id">{{item.categoryName}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+      </div><br>
+      <div class="w-full">
+        <mat-form-field class="w-full">
+          <mat-label>Title</mat-label>
+          <input matInput placeholder="Title" formControlName ='title'>
+        </mat-form-field>
+      </div><br>
+      <div class="w-full">
+        <mat-form-field class="w-full">
+          <mat-label>Description</mat-label>
+          <input matInput placeholder="Description" formControlName="description">
+        </mat-form-field>
+      </div>
+      <div class="w-full">
+        <mat-form-field class="w-full">
+          <mat-label>Content</mat-label>
+          <textarea matInput placeholder="Content" formControlName="content" ></textarea>
+        </mat-form-field>
+      </div>
+      <div class="w-full">
+        <mat-form-field class="w-full">
+          <mat-label>Image</mat-label>
+          <input matInput rows = "15" placeholder="Image URL" formControlName="image" >
+        </mat-form-field>
+      </div>
+      <div class="w-full mb-4">
+        <mat-checkbox formControlName="isFeatured">Is Featured</mat-checkbox>
+      </div>
+      <div class="w-full my-10">
+        @if(isEdit)
+        {
+          <button mat-raised-button (click)="onUpdateBlog()" [disabled] = "blogForm.invalid" class ="w-full" color = "primary">Update Blog</button>
+        }@else {
+          <button mat-raised-button (click)="onCreateBlog()" [disabled] = "blogForm.invalid" class ="w-full" color = "primary">Create Blog</button>
+        }
+      </div>
+    </div>
+  </form>
+</div>

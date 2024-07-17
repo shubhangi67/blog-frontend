@@ -1,0 +1,10 @@
+<div class="flex flex-col items-center px-20 mb-10">
+  <h2 class="text-xl font-bold text-center">All Blogs</h2>
+  <div class="flex flex-wrap gap-4">
+    @for (item of allBlogs; track $index) {
+    <div class="w-3/12">
+      <app-blogcards [item]="item"></app-blogcards>
+    </div>
+  }
+  </div>
+</div>
