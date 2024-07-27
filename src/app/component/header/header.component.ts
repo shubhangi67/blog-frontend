@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
 import { AuthService } from '../../auth.service';
 @Component({
@@ -7,8 +7,12 @@ import { AuthService } from '../../auth.service';
   standalone: true,
   imports: [MatToolbarModule, RouterLink],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  public authService = inject(AuthService)
+  public authService = inject(AuthService);
+  constructor() {}
+  logout() {
+    this.authService.logout();
+  }
 }

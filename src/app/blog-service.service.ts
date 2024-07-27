@@ -10,10 +10,20 @@ export class BlogServiceService {
 http = inject(HttpClient)
   constructor() {
   }
+  getHeaders(){
+    const token = localStorage.getItem("token") || "";
+    if(token){
+    return { headers: {
+    "Authorization": `Bearer ${token}`}
+    }}
+    else return {}
+    }
 
   getFeaturedBlogs()
     {
-      return this.http.get<Blog[]>(environment.apiUrl+ "Blog");
+      return this.http.get<Blog[]>(environment.apiUrl+ "Blog",{
+        ...this.getHeaders()
+      });
     }
   getBlogById(id:string)
   {

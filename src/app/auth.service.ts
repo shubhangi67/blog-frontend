@@ -15,6 +15,7 @@ export class AuthService {
     );
   }
   logout() {
+    debugger
     localStorage.removeItem('token'); // Or sessionStorage if you use that
   }
 get isLoggedIn()

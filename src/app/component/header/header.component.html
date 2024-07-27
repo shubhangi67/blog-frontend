@@ -3,14 +3,20 @@
   class="bg-blue-500 flex justify-between items-center px-20 h-16 shadow-md"
 >
   <span class="text-2xl font-bold text-white cursor-pointer" color="white">
-    <a href="/">My First Blog Site Application</a>
+    <a href="/about">My First Blog Site Application</a>
   </span>
   <ul class="flex gap-5">
-    <li><a routerLink="/blogs" class="text-white">Blogs</a></li>
-    <li><a routerLink="/about" class="text-white">About Us</a></li>
     @if (authService.isLoggedIn) {
+      <li><a routerLink="/blogs" class="text-white">Blogs</a></li>
       <li><a routerLink="/admin/blogs" class="text-white">Manage Blogs</a></li>
     }
-    <li><a routerLink="/login" class="text-white" onclick="logout()">Logout</a></li>
+    <li><a routerLink="/about" class="text-white">About Us</a></li>
+
+    @if (authService.isLoggedIn) {
+
+      <li><a routerLink="/login" class="text-white" (click)="logout()">Logout</a></li>
+    } @else {
+      <li><a routerLink="/login" class="text-white" >Login</a></li>
+    }
   </ul>
 </div>
